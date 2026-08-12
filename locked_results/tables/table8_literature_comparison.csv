@@ -1,0 +1,8 @@
+study,venue,dataset,n,models,reported_auc,notes
+Strack et al. (2014),BioMed Research International,Diabetes 130-US (source publication),"~70,000 encounters",Logistic regression,not reported as AUC,Established the HbA1c-measurement question; ICD grouping scheme
+Emi-Johnson & Nkrumah (2025),Cureus 17(4):e82437,"Diabetes 130-US, all encounters","101,766",LR / RF / XGBoost / DNN,XGB 0.667; LR 0.642; RF 0.630; DNN 0.579,One-hot encoding + SHAP; closest published analogue
+Salim & Ibrahim (2026),Healthcare (MDPI) 14(9):1185,Diabetes 130-US,not stated here,"Nested CV, calibrated ensemble",XGB 0.664; 0.688 after calibration (Brier 0.094),"Nested CV, Platt calibration, DCA, bootstrap CIs"
+Gandra (2024),Int. J. Health Sciences,Diabetes 130-US,not stated here,Six models incl. CatBoost/LightGBM,CatBoost 0.70,"Top predictors: number_inpatient, num_medications"
+LACE index (clinical comparator),Multiple validations,General medical cohorts,varies,Hand-built score,c-statistic ~0.55-0.78 across validations,Not diabetes-specific; order-of-magnitude benchmark only
+HOSPITAL score (clinical comparator),Multiple validations,General medical cohorts,varies,Hand-built score,c-statistic ~0.70-0.75,Not diabetes-specific; order-of-magnitude benchmark only
+Present study,-,"Diabetes 130-US, first encounter, death/hospice excluded","69,987 patients",Parsimonious LR / penalised LR / RF / XGBoost / LightGBM,LightGBM 0.658 (95% CI 0.641-0.675),"No imbalance correction; calibration, DCA and fairness reported"

@@ -1,0 +1,6 @@
+model,n_trials,selected_hyperparameters,best_cv_objective
+Parsimonious logistic regression,0,defaults (untuned baseline),
+Penalised logistic regression,32,C=0.2655; l1_ratio=0.8911,-0.29032
+Random forest,6,max_depth=13; min_samples_leaf=21; max_features=0.3,-0.28803
+XGBoost,35,n_estimators=700; learning_rate=0.0129; max_depth=6; min_child_weight=2.9727; subsample=0.7893; colsample_bytree=0.7878; reg_lambda=0.0097,-0.28679
+LightGBM,33,n_estimators=900; learning_rate=0.014; num_leaves=23; min_child_samples=9; subsample=0.833; colsample_bytree=0.6019; reg_lambda=0.0352,-0.28681

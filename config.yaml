@@ -1,0 +1,173 @@
+# =============================================================================
+# Frozen analysis configuration.
+# Every constant used anywhere in the pipeline lives here. Nothing is
+# hard-coded in source modules. Changing this file changes the analysis;
+# it should be version-controlled and tagged before the first run.
+# =============================================================================
+
+seed: 42
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  models: outputs/models
+  predictions: outputs/predictions
+  metrics: outputs/metrics
+  figures: outputs/figures
+  tables: outputs/tables
+  logs: logs
+
+data:
+  raw_file: diabetic_data.csv
+  ids_file: IDS_mapping.csv
+  missing_tokens: ["?", "", "NULL", "Unknown/Invalid"]
+
+# ----------------------------------------------------------------------------
+# Stage 2 - cohort derivation
+# ----------------------------------------------------------------------------
+cohort:
+  # Discharge dispositions denoting death or hospice. These patients cannot
+  # be readmitted; retaining them contaminates the negative class.
+  #  11 Expired | 13 Hospice/home | 14 Hospice/medical facility
+  #  19 Expired at home (hospice) | 20 Expired in medical facility (hospice)
+  #  21 Expired, place unknown (hospice)
+  excluded_discharge_ids: [11, 13, 14, 19, 20, 21]
+  drop_unknown_gender: true
+  # Gate: final cohort must fall inside this range or the run aborts.
+  expected_n_min: 66000
+  expected_n_max: 72000
+  expected_prevalence_min: 0.07
+  expected_prevalence_max: 0.13
+
+# ----------------------------------------------------------------------------
+# Stage 4 - feature engineering
+# ----------------------------------------------------------------------------
+features:
+  # Columns dropped outright.
+  drop_columns: ["weight", "encounter_id", "patient_nbr"]
+  # Medication columns with fewer than this fraction of non-"No" values are
+  # dropped as near-zero variance.
+  near_zero_variance_threshold: 0.005
+  # Categorical levels below this frequency are collapsed into "Other".
+  rare_level_threshold: 0.01
+  # Explicit-category variables (missingness is informative, not random).
+  unknown_category_columns: ["race", "medical_specialty", "payer_code"]
+  # Gate: proportion of encounters with an HbA1c result should reproduce
+  # the ~18.4% reported by Strack et al. (2014).
+  expected_a1c_tested_min: 0.15
+  expected_a1c_tested_max: 0.21
+
+# ----------------------------------------------------------------------------
+# Stage 6 - split and validation strategy
+# ----------------------------------------------------------------------------
+split:
+  test_size: 0.20
+  stratify: true
+
+cv:
+  n_splits: 5
+  n_repeats: 5
+  # Reduce n_repeats for the tuning loop only if compute-constrained.
+  tuning_n_repeats: 1
+
+# ----------------------------------------------------------------------------
+# Stage 7 - hyperparameter optimisation
+# ----------------------------------------------------------------------------
+tuning:
+  engine: optuna          # optuna | random
+  n_trials: 100
+  # Proper scoring rule. Calibration is a primary outcome, so the tuning
+  # objective must be calibration-sensitive rather than rank-based.
+  objective: neg_log_loss
+  secondary: roc_auc
+  timeout_seconds: null
+  n_jobs: 1
+
+# ----------------------------------------------------------------------------
+# Models
+# ----------------------------------------------------------------------------
+models:
+  enabled:
+    - parsimonious_lr
+    - penalised_lr
+    - random_forest
+    - xgboost
+    - lightgbm
+  primary_comparison: ["xgboost", "penalised_lr"]
+  parsimonious_features:
+    - number_inpatient
+    - number_emergency
+    - number_diagnoses
+    - time_in_hospital
+    - age
+
+# ----------------------------------------------------------------------------
+# Stages 9-12 - evaluation
+# ----------------------------------------------------------------------------
+calibration:
+  method: sigmoid         # sigmoid (Platt) | isotonic
+  cv: 5
+  n_bins: 10
+  binning: quantile
+
+thresholds:
+  capacity_fraction: 0.10   # flag the top 10% of predicted risk
+  target_sensitivity: 0.50
+
+bootstrap:
+  n_resamples: 2000
+  stratified: true
+  alpha: 0.05
+
+dca:
+  threshold_min: 0.01
+  threshold_max: 0.30
+  threshold_step: 0.005
+
+# ----------------------------------------------------------------------------
+# Stage 13 - explainability
+# ----------------------------------------------------------------------------
+explain:
+  shap_sample_size: 3000
+  permutation_repeats: 10
+  top_n_features: 15
+  aggregate_onehot: true
+
+# ----------------------------------------------------------------------------
+# Stage 14 - fairness
+# ----------------------------------------------------------------------------
+fairness:
+  subgroups: ["race", "gender", "age_band"]
+  min_subgroup_n: 200
+  min_subgroup_events: 20
+
+# ----------------------------------------------------------------------------
+# Stage 15 - sensitivity analyses
+# ----------------------------------------------------------------------------
+sensitivity:
+  imbalance_arms: ["none", "class_weight", "smote", "undersample"]
+  run:
+    imbalance: true
+    cohort: true
+    missing_data: true
+    payer_code: true
+    glycemic: true
+
+# ----------------------------------------------------------------------------
+# Leakage guard
+# ----------------------------------------------------------------------------
+sanity:
+  # Any model exceeding this on held-out data indicates leakage, not skill.
+  # The honest ceiling on this dataset is ~0.66-0.69.
+  max_plausible_auroc: 0.75
+  abort_on_leakage: true
+
+# ----------------------------------------------------------------------------
+# Figures
+# ----------------------------------------------------------------------------
+figures:
+  dpi: 300
+  formats: ["png", "pdf"]
+  style: publication
+  palette: colorblind

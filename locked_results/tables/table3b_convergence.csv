@@ -1,0 +1,5 @@
+model,n_complete,n_pruned,best_objective,best_at_trial,improvement_last_10,relative_improvement,converged,reason
+penalised_lr,32,21.0,-0.290325,53.0,0.0,1e-06,True,plateaued: relative improvement 0.0001% over last 10 trials
+random_forest,8,,,,,,False,insufficient trials to assess
+xgboost,35,28.0,-0.286792,42.0,0.0,0.0,True,plateaued: relative improvement 0.0000% over last 10 trials
+lightgbm,33,21.0,-0.28681,17.0,0.0,0.0,True,plateaued: relative improvement 0.0000% over last 10 trials

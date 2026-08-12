@@ -1,0 +1,43 @@
+variable,type,n_levels,levels,missing_pct,summary
+race,categorical,6,AfricanAmerican; Asian; Caucasian; Hispanic; Other; Unknown,0.0,mode Caucasian
+gender,categorical,2,Female; Male,0.0,mode Female
+time_in_hospital,continuous,-,-,0.0,median 3.0 [IQR 2.0-6.0]
+payer_code,categorical,18,BC; CH; CM; CP; DM; FR; HM; MC; MD; MP; OG; OT,0.0,mode Unknown
+medical_specialty,categorical,11,Cardiology; Emergency/Trauma; Family/GeneralPractice; InternalMedicine; Nephrology; Orthopedics; Orthopedics-Reconstructive; Other; Radiologist; Surgery-General; Unknown,0.0,mode Unknown
+num_lab_procedures,continuous,-,-,0.0,median 44.0 [IQR 31.0-57.0]
+num_procedures,continuous,-,-,0.0,median 1.0 [IQR 0.0-2.0]
+num_medications,continuous,-,-,0.0,median 14.0 [IQR 10.0-20.0]
+number_outpatient,continuous,-,-,0.0,median 0.0 [IQR 0.0-0.0]
+number_emergency,continuous,-,-,0.0,median 0.0 [IQR 0.0-0.0]
+number_inpatient,continuous,-,-,0.0,median 0.0 [IQR 0.0-0.0]
+number_diagnoses,continuous,-,-,0.0,median 8.0 [IQR 6.0-9.0]
+max_glu_serum,categorical,3,Elevated; Normal; Not measured,0.0,mode Not measured
+A1Cresult,categorical,4,>7; >8; Norm; Not measured,0.0,mode Not measured
+metformin,categorical,4,Down; No; Steady; Up,0.0,mode No
+repaglinide,categorical,4,Down; No; Steady; Up,0.0,mode No
+nateglinide,categorical,4,Down; No; Steady; Up,0.0,mode No
+glimepiride,categorical,4,Down; No; Steady; Up,0.0,mode No
+glipizide,categorical,4,Down; No; Steady; Up,0.0,mode No
+glyburide,categorical,4,Down; No; Steady; Up,0.0,mode No
+pioglitazone,categorical,4,Down; No; Steady; Up,0.0,mode No
+rosiglitazone,categorical,4,Down; No; Steady; Up,0.0,mode No
+insulin,categorical,4,Down; No; Steady; Up,0.0,mode No
+glyburide-metformin,categorical,4,Down; No; Steady; Up,0.0,mode No
+change,categorical,2,Ch; No,0.0,mode No
+diabetesMed,categorical,2,No; Yes,0.0,mode Yes
+target,continuous,-,-,0.0,median 0.0 [IQR 0.0-0.0]
+diag_1_group,categorical,9,Circulatory; Diabetes; Digestive; Genitourinary; Injury; Musculoskeletal; Neoplasms; Other; Respiratory,0.0,mode Circulatory
+diag_2_group,categorical,9,Circulatory; Diabetes; Digestive; Genitourinary; Injury; Musculoskeletal; Neoplasms; Other; Respiratory,0.0,mode Circulatory
+diag_3_group,categorical,9,Circulatory; Diabetes; Digestive; Genitourinary; Injury; Musculoskeletal; Neoplasms; Other; Respiratory,0.0,mode Other
+comorbidity_breadth,continuous,-,-,0.0,median 2.0 [IQR 2.0-3.0]
+A1C_tested,continuous,-,-,0.0,median 0.0 [IQR 0.0-0.0]
+glucose_tested,continuous,-,-,0.0,median 0.0 [IQR 0.0-0.0]
+A1C_tested_x_change,categorical,4,0_Ch; 0_No; 1_Ch; 1_No,0.0,mode 0_No
+age_midpoint,continuous,-,-,0.0,median 65.0 [IQR 55.0-75.0]
+age_band,categorical,4,40-64; 65-79; <40; >=80,0.0,mode 65-79
+admission_type,categorical,5,Elective; Emergency; Other; Unknown; Urgent,0.0,mode Emergency
+admission_source,categorical,7,Clinic referral; Emergency room; Other; Physician referral; Transfer from hospital; Transfer from other facility; Unknown,0.0,mode Emergency room
+discharge_disposition,categorical,8,Home; Home health service; Other; Other inpatient care; Rehab facility; SNF; Short-term hospital; Unknown,0.0,mode Home
+n_diabetes_meds,continuous,-,-,0.0,median 1.0 [IQR 1.0-2.0]
+n_meds_changed,continuous,-,-,0.0,median 0.0 [IQR 0.0-0.0]
+prior_utilisation_total,continuous,-,-,0.0,median 0.0 [IQR 0.0-1.0]
