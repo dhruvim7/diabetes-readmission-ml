@@ -1,0 +1,51 @@
+column,dtype,n_unique,n_missing,pct_missing,top_values
+encounter_id,int64,101766,0,0.0,2278392=1; 149190=1; 64410=1; 500364=1; 16680=1
+patient_nbr,int64,71518,0,0.0,88785891=40; 43140906=28; 1660293=23; 23199021=23; 88227540=23
+race,str,6,2273,2.23,Caucasian=76099; AfricanAmerican=19210; ?=2273; Hispanic=2037; Other=1506
+gender,str,3,3,0.0,Female=54708; Male=47055; Unknown/Invalid=3
+age,str,10,0,0.0,[70-80)=26068; [60-70)=22483; [50-60)=17256; [80-90)=17197; [40-50)=9685
+weight,str,10,98569,96.86,?=98569; [75-100)=1336; [50-75)=897; [100-125)=625; [125-150)=145
+admission_type_id,int64,8,0,0.0,1=53990; 3=18869; 2=18480; 6=5291; 5=4785
+discharge_disposition_id,int64,26,0,0.0,1=60234; 3=13954; 6=12902; 18=3691; 2=2128
+admission_source_id,int64,17,0,0.0,7=57494; 1=29565; 17=6781; 4=3187; 6=2264
+time_in_hospital,int64,14,0,0.0,3=17756; 2=17224; 1=14208; 4=13924; 5=9966
+payer_code,str,18,40256,39.56,?=40256; MC=32439; HM=6274; SP=5007; BC=4655
+medical_specialty,str,73,49949,49.08,?=49949; InternalMedicine=14635; Emergency/Trauma=7565; Family/GeneralPractice=7440; Cardiology=5352
+num_lab_procedures,int64,118,0,0.0,1=3208; 43=2804; 44=2496; 45=2376; 38=2213
+num_procedures,int64,7,0,0.0,0=46652; 1=20742; 2=12717; 3=9443; 6=4954
+num_medications,int64,75,0,0.0,13=6086; 12=6004; 11=5795; 15=5792; 14=5707
+number_outpatient,int64,39,0,0.0,0=85027; 1=8547; 2=3594; 3=2042; 4=1099
+number_emergency,int64,33,0,0.0,0=90383; 1=7677; 2=2042; 3=725; 4=374
+number_inpatient,int64,21,0,0.0,0=67630; 1=19521; 2=7566; 3=3411; 4=1622
+diag_1,str,717,21,0.02,428=6862; 414=6581; 786=4016; 410=3614; 486=3508
+diag_2,str,749,358,0.35,276=6752; 428=6662; 250=6071; 427=5036; 401=3736
+diag_3,str,790,1423,1.4,250=11555; 401=8289; 276=5175; 428=4577; 427=3955
+number_diagnoses,int64,16,0,0.0,9=49474; 5=11393; 8=10616; 7=10393; 6=10161
+max_glu_serum,str,4,0,0.0,None=96420; Norm=2597; >200=1485; >300=1264
+A1Cresult,str,4,0,0.0,None=84748; >8=8216; Norm=4990; >7=3812
+metformin,str,4,0,0.0,No=81778; Steady=18346; Up=1067; Down=575
+repaglinide,str,4,0,0.0,No=100227; Steady=1384; Up=110; Down=45
+nateglinide,str,4,0,0.0,No=101063; Steady=668; Up=24; Down=11
+chlorpropamide,str,4,0,0.0,No=101680; Steady=79; Up=6; Down=1
+glimepiride,str,4,0,0.0,No=96575; Steady=4670; Up=327; Down=194
+acetohexamide,str,2,0,0.0,No=101765; Steady=1
+glipizide,str,4,0,0.0,No=89080; Steady=11356; Up=770; Down=560
+glyburide,str,4,0,0.0,No=91116; Steady=9274; Up=812; Down=564
+tolbutamide,str,2,0,0.0,No=101743; Steady=23
+pioglitazone,str,4,0,0.0,No=94438; Steady=6976; Up=234; Down=118
+rosiglitazone,str,4,0,0.0,No=95401; Steady=6100; Up=178; Down=87
+acarbose,str,4,0,0.0,No=101458; Steady=295; Up=10; Down=3
+miglitol,str,4,0,0.0,No=101728; Steady=31; Down=5; Up=2
+troglitazone,str,2,0,0.0,No=101763; Steady=3
+tolazamide,str,3,0,0.0,No=101727; Steady=38; Up=1
+examide,str,1,0,0.0,No=101766
+citoglipton,str,1,0,0.0,No=101766
+insulin,str,4,0,0.0,No=47383; Steady=30849; Down=12218; Up=11316
+glyburide-metformin,str,4,0,0.0,No=101060; Steady=692; Up=8; Down=6
+glipizide-metformin,str,2,0,0.0,No=101753; Steady=13
+glimepiride-pioglitazone,str,2,0,0.0,No=101765; Steady=1
+metformin-rosiglitazone,str,2,0,0.0,No=101764; Steady=2
+metformin-pioglitazone,str,2,0,0.0,No=101765; Steady=1
+change,str,2,0,0.0,No=54755; Ch=47011
+diabetesMed,str,2,0,0.0,Yes=78363; No=23403
+readmitted,str,3,0,0.0,NO=54864; >30=35545; <30=11357

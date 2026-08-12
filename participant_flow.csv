@@ -1,0 +1,6 @@
+step,n,excluded,reason
+Raw encounters,101766,0,-
+After excluding death/hospice discharges,99343,2423,"discharge_disposition_id in [11, 13, 14, 19, 20, 21]"
+After excluding unknown gender,99340,3,gender = Unknown/Invalid
+After retaining first encounter per patient,69987,29353,repeat encounters removed (statistical independence)
+Final analytical cohort,69987,0,"6,285 early readmissions (8.98%)"

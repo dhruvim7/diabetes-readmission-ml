@@ -1,0 +1,11 @@
+{
+  "n_available": 55989,
+  "events": 5028,
+  "prevalence": 0.08980335423029524,
+  "candidate_parameters": 132,
+  "events_per_parameter": 38.09,
+  "minimum_n_criterion1": 16796.7,
+  "minimum_n_criterion3": 125.6,
+  "minimum_n_required": 16796.7,
+  "adequate": true
+}

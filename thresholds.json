@@ -1,0 +1,27 @@
+{
+  "parsimonious_lr": {
+    "capacity": 0.1200752984811514,
+    "youden": 0.0881074487626642,
+    "fixed_sensitivity": 0.0873899082160375
+  },
+  "penalised_lr": {
+    "capacity": 0.1430764368252937,
+    "youden": 0.0842522601575595,
+    "fixed_sensitivity": 0.0951740145863744
+  },
+  "random_forest": {
+    "capacity": 0.14829469478796337,
+    "youden": 0.1053029734104596,
+    "fixed_sensitivity": 0.1315685959594669
+  },
+  "xgboost": {
+    "capacity": 0.14825718800000004,
+    "youden": 0.09872472,
+    "fixed_sensitivity": 0.12558606
+  },
+  "lightgbm": {
+    "capacity": 0.14678792182493136,
+    "youden": 0.1021994589537871,
+    "fixed_sensitivity": 0.1289412721353723
+  }
+}

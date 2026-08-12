@@ -1,0 +1,17 @@
+{
+  "dev_holdout_row_overlap": 1,
+  "tuning_data": "development set only (RepeatedStratifiedKFold on dev)",
+  "thresholds_source": "development_probabilities.csv",
+  "calibration_fit": "CalibratedClassifierCV on development set (cv=5)",
+  "preprocessing_inside_pipeline": {
+    "parsimonious_lr": true,
+    "penalised_lr": true,
+    "random_forest": true,
+    "xgboost": true,
+    "lightgbm": true
+  },
+  "n_development": 55989,
+  "n_holdout": 13998,
+  "prevalence_development": 0.0898,
+  "prevalence_holdout": 0.0898
+}

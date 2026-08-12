@@ -1,0 +1,11 @@
+comparison,type,auc_a,auc_b,difference,ci,p_value,p_adjusted,mcnemar_p
+xgboost vs penalised_lr,primary (pre-specified),0.6577,0.6483,0.0094,0.0014 to 0.0173,0.02093552096292073,0.02093552096292073,0.01055918153603778
+parsimonious_lr vs penalised_lr,secondary (Holm-corrected),0.5973,0.6483,-0.051,-0.0670 to -0.0351,3.9649727945345603e-10,2.378983676720736e-09,
+parsimonious_lr vs random_forest,secondary (Holm-corrected),0.5973,0.6581,-0.0609,-0.0764 to -0.0453,1.6209256159527285e-14,1.4588330543574557e-13,
+parsimonious_lr vs xgboost,secondary (Holm-corrected),0.5973,0.6577,-0.0604,-0.0766 to -0.0442,3.028688411177427e-13,2.120081887824199e-12,
+parsimonious_lr vs lightgbm,secondary (Holm-corrected),0.5973,0.6582,-0.0609,-0.0769 to -0.0449,9.281464485866309e-14,7.425171588693047e-13,
+penalised_lr vs random_forest,secondary (Holm-corrected),0.6483,0.6581,-0.0098,-0.0186 to -0.0011,0.028143454604822482,0.11257381841928993,
+penalised_lr vs lightgbm,secondary (Holm-corrected),0.6483,0.6582,-0.0099,-0.0173 to -0.0025,0.008860965459030146,0.04430482729515073,
+random_forest vs xgboost,secondary (Holm-corrected),0.6581,0.6577,0.0005,-0.0058 to 0.0067,0.881622653273646,1.0,
+random_forest vs lightgbm,secondary (Holm-corrected),0.6581,0.6582,-0.0,-0.0060 to 0.0059,0.9895475954549058,1.0,
+xgboost vs lightgbm,secondary (Holm-corrected),0.6577,0.6582,-0.0005,-0.0040 to 0.0029,0.7699554882515667,1.0,
